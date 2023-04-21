@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+  variables:
+    limit: 100
+    skip: 0
+
+scenarios:
+  - name: "Find users"
+    flow:
+      - get:
+          url: "/users?limit={{limit}}&skip={{skip}}"
+          expect:
+            - statusCode: 200
