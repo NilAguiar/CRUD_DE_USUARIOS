@@ -11,7 +11,7 @@ UserRoutes.get('/user', async (req: Request, res: Response) => {
 
 UserRoutes.get('/users', async (req: Request, res: Response) => {
     const limit: string = req.query.limit as string
-    const skip: string = req.query.skip as string
+    const skip: string = req.query.offset as string
     const users = await getUsers(limit, skip)
     return res.json(users)
 })
